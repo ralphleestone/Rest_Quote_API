@@ -11,6 +11,8 @@ class Author {
     }
     
     public function read() {
+        
+        // Creates SQL Query
         $query = 'SELECT
         id,
         author
@@ -23,6 +25,8 @@ class Author {
     }
     
     public function read_single() {
+        
+        // Creates SQL Query
         $query = 'SELECT
         id,
         author
@@ -43,6 +47,8 @@ class Author {
     }
     
     public function create() {
+        
+        // Creates SQL Query
         $query = 'INSERT INTO ' . $this->table . '
         SET
         author = :author';
@@ -60,6 +66,8 @@ class Author {
     }
     
     public function update() {
+        
+        // Creates SQL Query
         $query = 'UPDATE ' . $this->table . '
         SET
         id = :id,
@@ -81,6 +89,8 @@ class Author {
     }
     
     public function delete() {
+        
+        // Creates SQL Query
         $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
         $stmt = $this->conn->prepare($query);
         

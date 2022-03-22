@@ -12,6 +12,8 @@ class Quote {
     }
     
     public function read() {
+        
+        // Creates SQL Query
         $query = 'SELECT
         q.id,
         q.quote,
@@ -31,6 +33,8 @@ class Quote {
     }
     
     public function read_single() {
+        
+        // Creates SQL Query
         $query = 'SELECT
         q.id,
         q.quote,
@@ -58,6 +62,8 @@ class Quote {
     }
     
     public function getQuotesByAuthorID() {
+        
+        // Creates SQL Query
         $query = 'SELECT 
         q.id,
         q.quote,
@@ -81,6 +87,8 @@ class Quote {
     }
     
     public function getQuotesByCategoryId() {
+        
+        // Creates SQL Query
         $query = 'SELECT 
         q.id,
         q.quote,
@@ -103,6 +111,8 @@ class Quote {
     }
     
     public function getQuotesByAuthorIdAndCategoryId() {
+        
+        // Creates SQL Query
         $query = 'SELECT 
         q.id,
         q.quote,
@@ -128,6 +138,8 @@ class Quote {
     }
     
     public function create() {
+        
+        // Creates SQL Query
         $query = 'INSERT INTO ' . 
         $this->table . '
         SET
@@ -152,6 +164,8 @@ class Quote {
     }
     
     public function update() {
+        
+        // Creates SQL Query
         $query = 'UPDATE ' . 
         $this->table . '
         SET
@@ -180,7 +194,10 @@ class Quote {
         return false;
     }
     public function delete() {
+        
+        // Creates SQL Query
         $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
+        
         $stmt = $this->conn->prepare($query);
         $this->id = htmlspecialchars(strip_tags($this->id));
         $stmt->bindParam(':id', $this->id);

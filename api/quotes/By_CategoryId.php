@@ -19,12 +19,12 @@ $result = $quote->getQuotesByCategoryId();
 
 $num = $result->rowCount();
 
- if($num > 0) {
+if($num > 0) {
     $quote_arr = array();
-
+    
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
-
+        
         $quote_item = array( 
             'quote' => html_entity_decode($quote),
             'author' => $author,
@@ -32,8 +32,8 @@ $num = $result->rowCount();
             'category' => $category
         );
         array_push($quote_arr, $quote_item); 
- }
- print_r(json_encode($quote_arr));
+    }
+    print_r(json_encode($quote_arr));
 } else {
     echo json_encode(
         array('message' => 'No quotes found')

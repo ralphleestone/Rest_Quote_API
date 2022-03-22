@@ -20,7 +20,7 @@ $data = json_decode(file_get_contents("php://input"));
 $category->id = $data->id;
 $category->category = $data->category;
 
-if(isset($category->category)){
+if(isset($category->category) == NULL){
     echo json_encode(array('message' => 'Missing Required Parameters'));
 }
 

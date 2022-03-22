@@ -8,7 +8,7 @@ include_once '../../config/Database.php';
 include_once '../../models/Quote.php';
 include_once '../../models/Author.php';
 include_once '../../models/Category.php';
-include_once '../../api/IsValid/IsValid.php';
+include_once '../../functions/IsValid.php';
 
 $database = new Database();
 $db = $database->connect();

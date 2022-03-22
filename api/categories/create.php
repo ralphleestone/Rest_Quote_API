@@ -26,9 +26,11 @@ if(!$quoteExists){
     echo json_encode(array('message' => 'Missing Required Parameters'));
 }
 
+/*
 if(isset($category->category) == NULL){
     echo json_encode(array('message' => 'Missing Required Parameters'));
 }
+*/
 
  if($category->create()){
      

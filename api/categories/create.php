@@ -20,11 +20,13 @@ $data = json_decode(file_get_contents("php://input"));
 $category->id = $data->id;
 $category->category = $data->category;
 
+/*
 $quoteExists = IsValid($category->id,$category)
 
 if(!$quoteExists){
     echo json_encode(array('message' => 'Missing Required Parameters'));
 }
+*/
 
 /*
 if(isset($category->category) == NULL){

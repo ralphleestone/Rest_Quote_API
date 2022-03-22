@@ -10,6 +10,8 @@ include_once '../../models/Author.php';
 include_once '../../models/Category.php';
 include_once '../../functions/IsValid.php';
 
+// needs updated!
+
 $database = new Database();
 $db = $database->connect();
 

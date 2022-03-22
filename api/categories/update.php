@@ -1,6 +1,9 @@
 <?php
 include_once '../../config/Database.php';
 include_once '../../models/Category.php';
+include_once '../../functions/IsValid.php';
+
+// needs updated!
 
 $database = new Database();
 $db = $database->connect();

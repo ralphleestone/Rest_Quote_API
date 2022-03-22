@@ -35,6 +35,7 @@ else {
 
 */
 
+// converts data to json
 if(isset($quote->id) !== false) {
     echo json_encode(
         array('id' =>  $quote->id));

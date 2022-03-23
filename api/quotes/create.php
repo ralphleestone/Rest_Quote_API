@@ -30,7 +30,7 @@ $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
-if(isset($data->quote) == false){
+if(isset($quote->quote) == false){
     echo json_encode(array('message' => 'Missing Required Parameters'));
 }else{
     // Converts to json

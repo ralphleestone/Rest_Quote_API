@@ -43,21 +43,23 @@ if(!$categoryIdExists){
 }
 */
 
-if(isset($quote->quote) == false || isset($quote->authorId) == false || isset($quote->categoryId) == false){
-    echo json_encode(
-        array('message' => 'Missing Required Parameters')
-    );
-}else if(!$authorIdExists){
-    echo json_encode(
-        array('message' => 'authorId Not Found')
-    );
-}
-else if(!$categoryIdExists){
+if(!$categoryIdExists){
     echo json_encode(
         array('message' => 'categoryId Not Found')
     );
 }
-else{
+
+if(!$authorIdExists){
+    echo json_encode(
+        array('message' => 'authorId Not Found')
+    );
+}
+
+if(isset($quote->quote) == false || isset($quote->authorId) == false || isset($quote->categoryId) == false){
+    echo json_encode(
+        array('message' => 'Missing Required Parameters')
+    );
+} else{
     // Converts to json
     echo json_encode(
         // Creates array

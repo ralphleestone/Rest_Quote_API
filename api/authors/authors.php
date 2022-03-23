@@ -1,13 +1,18 @@
 <?php
+
+// Sets headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
+// Includes required files
 include_once '../../config/Database.php';
 include_once '../../models/Author.php';
 
+// Creates database object
 $database = new Database();
 $db = $database->connect();
 
+// Creates author object
 $author = new Author($db);
 
 $result = $author->read();

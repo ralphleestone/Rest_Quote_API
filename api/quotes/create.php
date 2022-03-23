@@ -1,6 +1,6 @@
 <?php
 
-// Headers
+// Sets headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
@@ -38,7 +38,9 @@ if(isset($quote) == false){
 
 // Checks if Quote was created
 if($quote->create()) {
+    // Converts to json
     echo json_encode(
+        // Creates array
         array(
             'id' => $db->lastInsertId(),
             'quote' => $quote->quote,

@@ -1,9 +1,12 @@
 <?php
+
+// Sets headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
+// Includes required files
 include_once '../../config/Database.php';
 include_once '../../models/Category.php';
 include_once '../../functions/IsValid.php';
@@ -39,6 +42,7 @@ if(isset($category->category) == NULL){
 
 // checks if category was created
 if($category->create()){
+    // Converts to json
     echo json_encode(
         array(
             'id' => $db->lastInsertId(),

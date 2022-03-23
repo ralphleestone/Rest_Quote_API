@@ -1,9 +1,12 @@
 <?php
+
+// Sets headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: GET');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
+// Includes required files
 include_once '../../config/Database.php';
 include_once '../../models/Quote.php';
 include_once '../../models/Author.php';
@@ -27,13 +30,14 @@ if($num > 0) {
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
         
+        // Creates array
         $quote_item = array( 
             'quote' => html_entity_decode($quote),
             'author' => $author,
             'id' => $id,
             'category' => $category
         );
-        array_push($quote_arr, $quote_item); 
+        array_push($quote_arr, $quote_item);
     }
     print_r(json_encode($quote_arr));
 } else {

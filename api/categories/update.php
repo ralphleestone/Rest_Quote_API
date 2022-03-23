@@ -1,15 +1,20 @@
 <?php
+
+// include required files
 include_once '../../config/Database.php';
 include_once '../../models/Category.php';
 include_once '../../functions/IsValid.php';
 
 // needs updated!
 
+// Creates database object
 $database = new Database();
 $db = $database->connect();
 
+// Creates category object
 $category = new Category($db);
 
+// Decodes json and reads data into a string
 $data = json_decode(file_get_contents("php://input"));
 
 $category->id = $data->id;

@@ -1,9 +1,12 @@
 <?php
+
+// Sets headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: DELETE');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
+// Includes required files
 include_once '../../config/Database.php';
 include_once '../../models/Quote.php';
 include_once '../../models/Author.php';
@@ -38,7 +41,7 @@ else {
 
 */
 
-// converts data to json
+// Converts data to json
 if(isset($quote->id) !== false) {
     echo json_encode(
         array('id' =>  $quote->id));

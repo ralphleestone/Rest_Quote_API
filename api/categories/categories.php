@@ -1,7 +1,10 @@
 <?php
+
+// Sets headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
+// Includes required files
 include_once '../../config/Database.php';
 include_once '../../models/Category.php';
 
@@ -27,7 +30,6 @@ if($num > 0) {
         );
         array_push($category_arr, $category_item);
     }
-    
     print_r(json_encode($category_arr));
 } else {
     echo json_encode(

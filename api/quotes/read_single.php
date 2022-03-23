@@ -1,7 +1,10 @@
 <?php
+
+// Sets headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
+// Includes required files
 include_once '../../config/Database.php';
 include_once '../../models/Quote.php';
 

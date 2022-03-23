@@ -25,17 +25,11 @@ $data = json_decode(file_get_contents("php://input"));
 // checks if for missing required parameters
 
 if(isset($quote->quote) == false){
-    echo json_encode(
-        array('message' => 'Missing Required Parameters')
-    );
+    echo json_encode(array('message' => 'Missing Required Parameters'));
 }else if(isset($quote->authorId) == false){
-    echo json_encode(
-        array('message' => 'Missing Required Parameters')
-    );
+    echo json_encode(array('message' => 'Missing Required Parameters'));
 }else if(isset($data->categoryId) == false){
-    echo json_encode(
-        array('message' => 'Missing Required Parameters')
-    );
+    echo json_encode(array('message' => 'Missing Required Parameters'));
 }
 
 $quote->id = $data->id;

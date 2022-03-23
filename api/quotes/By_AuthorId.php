@@ -33,7 +33,6 @@ $num = $result->rowCount();
             'id' => $id,
             'author' => $author
         );
-
         array_push($quote_arr, $quote_item);
     }
     print_r(json_encode($quote_arr));

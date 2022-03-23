@@ -34,8 +34,7 @@ $authorIdExists = IsValid($quote->authorId,$quote)
 
 if(!$authorIdExists){
     echo json_encode(array('message' => 'authorId Not Found'));
-}
-else{
+} else{
     // Converts to json
     echo json_encode(
         // Creates array

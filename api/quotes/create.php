@@ -24,10 +24,10 @@ $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
-var_dump(isset($quote->id));
-var_dump(isset($quote->quote));
-var_dump(isset($quote->authorId));
-var_dump(isset($quote->categoryId));
+var_dump(isset($data->id));
+var_dump(isset($data->quote));
+var_dump(isset($data->authorId));
+var_dump(isset($quote->$data->categoryId));
 
 if($quote->create()) {
     echo json_encode(

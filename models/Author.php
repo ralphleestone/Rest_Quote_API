@@ -27,6 +27,8 @@ class Author {
         
         // Executes SQL query
         $stmt->execute();
+        
+        // Returns $stmt result
         return $stmt;
     }
     
@@ -51,6 +53,7 @@ class Author {
         // Executes SQL query
         $stmt->execute();
         
+        // Fetch a row from a result set
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         
         // Set properties

@@ -27,6 +27,8 @@ class Category {
 
     // Executes SQL query
     $stmt->execute();
+    
+    // Returns $stmt result
     return $stmt;
   }
   
@@ -51,6 +53,7 @@ class Category {
     // Binds parameter to specified variable
     $stmt->execute();
     
+    // Fetch a row from a result set
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
     // Sets properties

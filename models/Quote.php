@@ -37,6 +37,8 @@ class Quote {
 
         // Executes SQL query
         $stmt->execute();
+        
+        // Returns $stmt result
         return $stmt;
     }
     
@@ -68,6 +70,7 @@ class Quote {
         // Executes SQL query
         $stmt->execute();
         
+        // Fetch a row from a result set
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         
         // Sets properties
@@ -133,6 +136,8 @@ class Quote {
         
         // Executes SQL query
         $stmt->execute();
+        
+        // Returns $stmt result
         return $stmt;
     }
     
@@ -165,6 +170,8 @@ class Quote {
         
         // Executes SQL query
         $stmt->execute();
+        
+        // Returns $stmt result
         return $stmt;
     }
     

@@ -30,7 +30,7 @@ if(isset($category->id) == false || isset($category->category) == false){
         array('id' => $category->id,
               'category' => $category->category)
     );
-    }
+}
 
 /*
 // Checks if category was updated

@@ -42,6 +42,21 @@ $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
+if(isset($quote->id) == false || isset($quote->quote) == false || isset($quote->authorId) == false || isset($quote->categoryId) == false){
+    echo json_encode(
+        array('message' => 'Missing Required Parameters')
+    );
+}else{
+    // converts json
+    echo json_encode(
+        array('id' => $quote->id,
+        'quote' => $quote->quote,
+        'authorId' => $quote->authorId,
+        'categoryId' => $quote->categoryId
+        )
+    );
+}
+
 // $quotesExists = isValid($quote->quote,$quote);
 
 /*
@@ -70,7 +85,7 @@ if(!$quotesExists){
     );
 }
 */
-
+/*
 // Checks if Quote was updated
 if($quote->update()) {
     echo json_encode(
@@ -85,5 +100,5 @@ if($quote->update()) {
         array('message' => 'quote not updated')
     );
 }
-
+*/
 ?>

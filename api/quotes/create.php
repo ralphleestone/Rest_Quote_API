@@ -37,8 +37,4 @@ if($quote->create()) {
             array('message' => 'quote Not Created')
         );
     }
-    
-    if(isset($id) === NULL or (isset($quote) === NULL){
-        echo json_encode(array('message' => 'Missing Required Parameters'));
-    }
 ?>

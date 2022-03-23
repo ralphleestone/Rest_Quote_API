@@ -52,6 +52,7 @@ if(isset($category->category) == NULL){
     echo json_encode(array('message' => 'Missing Required Parameters'));
 }
 */
+
 /*
 // checks if category was created
 if($category->create()){

@@ -25,6 +25,11 @@ $quote = new Quote($db);
 // Decodes json and reads data into a string
 $data = json_decode(file_get_contents("php://input"));
 
+$quote->id = $data->id;
+$quote->quote = $data->quote;
+$quote->authorId = $data->authorId;
+$quote->categoryId = $data->categoryId;
+
 $authorIdExists = IsValid($data->authorId,$quote);
 $categoryIdExists = IsValid($data->categoryId,$quote);
 
@@ -32,18 +37,11 @@ if(!$categoryIdExists){
     echo json_encode(
         array('message' => 'categoryId Not Found')
     );
-}
-
-if(!$authorIdExists){
+}else if(!$authorIdExists){
     echo json_encode(
         array('message' => 'authorId Not Found')
     );
 }
-
-$quote->id = $data->id;
-$quote->quote = $data->quote;
-$quote->authorId = $data->authorId;
-$quote->categoryId = $data->categoryId;
 
 if(isset($quote->quote) == false || isset($quote->authorId) == false || isset($quote->categoryId) == false){
     echo json_encode(

@@ -22,6 +22,12 @@ $quote = new Quote($db);
 // Decodes json and reads data into a string
 $data = json_decode(file_get_contents("php://input"));
 
+if(isset($quote->quote)){
+    echo json_encode(
+        array('message' => 'quote not updated')
+    );
+}
+
 $quote->id = $data->id;
 $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;

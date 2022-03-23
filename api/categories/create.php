@@ -10,9 +10,11 @@ include_once '../../functions/IsValid.php';
 
 // needs updated!
 
+// Creates database object
 $database = new Database();
 $db = $database->connect();
 
+// Creates category object
 $category = new Category($db);
 
 // Decodes json and reads data into a string
@@ -35,16 +37,16 @@ if(isset($category->category) == NULL){
 }
 */
 
- if($category->create()){
-     
-   echo json_encode(
-        array(
-                'id' => $db->lastInsertId(),
-                'category' => $category->category)
-    );
-} else {
+// checks if category was created
+if($category->create()){
     echo json_encode(
-        array('message' => 'Missing Required Parameters')
-    );
-}
+        array(
+            'id' => $db->lastInsertId(),
+            'category' => $category->category)
+        );
+    } else {
+        echo json_encode(
+            array('message' => 'Missing Required Parameters')
+        );
+    }
 ?>

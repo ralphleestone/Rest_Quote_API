@@ -16,6 +16,7 @@ $quote->id = isset($_GET['id']) ? $_GET['id'] : die();
 
 $quote->read_single();
 
+// Creates array
 $quote_arr = array (
     'id' => $quote->id,
     'quote' => $quote->quote,
@@ -23,6 +24,7 @@ $quote_arr = array (
     'category' => $quote -> category
 );
 
+// Checks if id is null or not
 if($quote->id !== null) {
     print_r(json_encode($quote_arr));
 }

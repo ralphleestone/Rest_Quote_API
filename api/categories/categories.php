@@ -5,9 +5,11 @@ header('Content-Type: application/json');
 include_once '../../config/Database.php';
 include_once '../../models/Category.php';
 
+// Creates database object
 $database = new Database();
 $db = $database->connect();
 
+// Creates category object
 $category = new Category($db);
 
 $result = $category->read();
@@ -23,7 +25,6 @@ if($num > 0) {
             'id' => $id,
             'category' => $category   
         );
-
         array_push($category_arr, $category_item);
     }
     

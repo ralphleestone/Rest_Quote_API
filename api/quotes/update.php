@@ -42,6 +42,7 @@ $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
+$quotesExists = isValid($quote->quote,$quote);
 /*
 $authorIdExists = isValid($quote->authorId,$quote);
 $categoryIdExists = isValid($quote->categoryId,$quote);
@@ -54,7 +55,19 @@ if(!$categoryIdExists){
     echo json_encode(array('message' => 'categoryId Not Found'));
 }
 */
+if(!$quotesExists){
+    echo json_encode(array('message' => 'No Quotes Found'));
+} else{
+    echo json_encode(
+        array('id' => $quote->id,
+        'quote' => $quote->quote,
+        'authorId' => $quote->authorId,
+        'categoryId' => $quote->categoryId
+        )
+    );
+}
 
+/*
 // Checks if Quote was updated
 if($quote->update()) {
     echo json_encode(
@@ -68,5 +81,6 @@ if($quote->update()) {
     echo json_encode(
         array('message' => 'quote not updated')
     );
-}
+}*/
+
 ?>

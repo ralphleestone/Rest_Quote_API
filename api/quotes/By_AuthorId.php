@@ -22,6 +22,7 @@ $quote->authorId = isset($_GET['authorId']) ? $_GET['authorId'] : die();
 
 $result = $quote->getQuotesByAuthorID();
 
+// Gets row count
 $num = $result->rowCount();
 
  if($num > 0) {

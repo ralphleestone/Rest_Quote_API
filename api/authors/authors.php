@@ -17,6 +17,7 @@ $author = new Author($db);
 
 $result = $author->read();
 
+// Gets row count
 $num = $result->rowCount();
 
 if($num > 0) {

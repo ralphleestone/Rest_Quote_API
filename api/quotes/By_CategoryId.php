@@ -22,6 +22,7 @@ $quote->categoryId = isset($_GET['categoryId']) ? $_GET['categoryId'] : die();
 
 $result = $quote->getQuotesByCategoryId();
 
+// Gets row count
 $num = $result->rowCount();
 
 if($num > 0) {

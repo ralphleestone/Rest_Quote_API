@@ -17,6 +17,7 @@ $category = new Category($db);
 
 $result = $category->read();
 
+// Gets row count
 $num = $result->rowCount();
 
 if($num > 0) {

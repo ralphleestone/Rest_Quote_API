@@ -1,9 +1,12 @@
 <?php
+
+// Headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
+// Includes needed files
 include_once '../../config/Database.php';
 include_once '../../models/Quote.php';
 include_once '../../models/Author.php';
@@ -12,10 +15,13 @@ include_once '../../functions/IsValid.php';
 
 // needs updated!
 
+// Creates database object
 $database = new Database();
 $db = $database->connect();
 
+// Creates Quote object
 $quote = new Quote($db);
+
 
 $data = json_decode(file_get_contents("php://input"));
 
@@ -28,6 +34,7 @@ if(isset($quote) == false){
     echo json_encode(array('message' => 'Missing Required Parameters'));
 }
 
+// Checks if Quote was created
 if($quote->create()) {
     echo json_encode(
         array(

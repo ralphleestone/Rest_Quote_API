@@ -30,9 +30,10 @@ $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
-$authorIdExists = IsValid($quote->authorId,$quote);
-$categoryIdExists = IsValid($quote->categoryId,$quote);
+// $authorIdExists = IsValid($quote->authorId,$quote);
+// $categoryIdExists = IsValid($quote->categoryId,$quote);
 
+/*
 if(!$authorIdExists){
     echo json_encode(array('message' => 'authorId Not Found'));
 }
@@ -40,6 +41,7 @@ if(!$authorIdExists){
 if(!$categoryIdExists){
     echo json_encode(array('message' => 'categoryId Not Found'));
 }
+*/
 
 /*
 if(isset($quote->quote) == false){

@@ -187,6 +187,8 @@ class Quote {
         
         // Prepares SQL query statement
         $stmt = $this->conn->prepare($query);
+        
+        // Sanitizes the string
         $this->quote = htmlspecialchars(strip_tags($this->quote));
         $this->authorId = htmlspecialchars(strip_tags($this->authorId));
         $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
@@ -246,6 +248,8 @@ class Quote {
         
         // Prepares SQL query statement
         $stmt = $this->conn->prepare($query);
+
+        // Sanitizes the string
         $this->id = htmlspecialchars(strip_tags($this->id));
         
         // Binds parameter to specified variable

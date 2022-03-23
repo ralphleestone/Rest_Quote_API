@@ -42,7 +42,7 @@ $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
-if(isset($quote->id) == false && isset($quote->quote) == false && isset($quote->authorId) == false && isset($quote->categoryId) == false){
+if(isset($quote->id) == false || isset($quote->quote) == false || isset($quote->authorId) == false || isset($quote->categoryId) == false){
     echo json_encode(
         array('message' => 'Missing Required Parameters')
     );

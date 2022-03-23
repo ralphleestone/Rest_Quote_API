@@ -25,7 +25,7 @@ $num = $result->rowCount();
         extract($row);
 
         $quote_item = array( 
-            
+        
             'quote' => html_entity_decode($quote),
             'category' => $category,
             'id' => $id,

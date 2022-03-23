@@ -24,10 +24,6 @@ $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
-if(isset($quote->id) === NULL){
-    echo json_encode(array('message' => 'Missing Required Parameters'));
-}
-
 if($quote->create()) {
     echo json_encode(
         array(
@@ -40,6 +36,12 @@ if($quote->create()) {
         echo json_encode(
             array('message' => 'quote Not Created')
         );
-    } 
-    if()
+    }
+    if(isset($quote->id) === NULL){
+    echo json_encode(array('message' => 'Missing Required Parameters'));
+}
+
+if(isset($quote->id) === NULL){
+    echo json_encode(array('message' => 'Missing Required Parameters'));
+}
 ?>

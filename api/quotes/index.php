@@ -3,6 +3,7 @@
     header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
     
+    // Defines variable to check request method
     $method = $_SERVER['REQUEST_METHOD'];
     
     if ($method === 'OPTIONS') {

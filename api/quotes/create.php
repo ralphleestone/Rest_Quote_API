@@ -37,17 +37,7 @@ if(!$authorIdExists){
     echo json_encode(array('message' => 'authorId Not Found'));
 } else if(!$categoryIdExists){
     echo json_encode(array('message' => 'categoryId Not Found'));
-} else{
-    // Converts to json
-    echo json_encode(
-        // Creates array
-        array(
-            'id' => $db->lastInsertId(),
-            'quote' => $quote->quote,
-            'authorId' => $quote->authorId,
-            'categoryId' => $quote->categoryId)
-        );
-    }
+}
 
 /*
 if(isset($quote->quote) == false){
@@ -65,7 +55,6 @@ if(isset($quote->quote) == false){
     }
 */
 
-/*
 // Checks if Quote was created
 if($quote->create()) {
     // Converts to json
@@ -82,5 +71,4 @@ if($quote->create()) {
             array('message' => 'quote Not Created')
         );
     }
-    */
 ?>

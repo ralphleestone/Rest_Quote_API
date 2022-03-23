@@ -55,6 +55,7 @@ if(!$categoryIdExists){
     echo json_encode(array('message' => 'categoryId Not Found'));
 }
 */
+
 if(!$quotesExists){
     echo json_encode(array('message' => 'No Quotes Found'));
 } else{

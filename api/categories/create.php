@@ -66,5 +66,4 @@ if($category->create()){
             array('message' => 'Missing Required Parameters')
         );
     }
-    */
 ?>

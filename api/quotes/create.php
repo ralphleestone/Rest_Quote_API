@@ -30,6 +30,24 @@ $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
+$authorIdExists = IsValid($quote->authorId,$quote)
+
+if(!$authorIdExists){
+    echo json_encode(array('message' => 'authorId Not Found'));
+}
+else{
+    // Converts to json
+    echo json_encode(
+        // Creates array
+        array(
+            'id' => $db->lastInsertId(),
+            'quote' => $quote->quote,
+            'authorId' => $quote->authorId,
+            'categoryId' => $quote->categoryId)
+        );
+    }
+
+/*
 if(isset($quote->quote) == false){
     echo json_encode(array('message' => 'Missing Required Parameters'));
 }else{
@@ -43,6 +61,7 @@ if(isset($quote->quote) == false){
             'categoryId' => $quote->categoryId)
         );
     }
+*/
 
 /*
 // Checks if Quote was created

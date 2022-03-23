@@ -27,9 +27,9 @@ $category->id = $data->id;
 $category->category = $data->category;
 
 /*
-$quoteExists = IsValid($category->id,$category)
+$categoryExists = IsValid($category->id,$category)
 
-if(!$quoteExists){
+if(!categoryExists){
     echo json_encode(array('message' => 'Missing Required Parameters'));
 }
 */

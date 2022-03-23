@@ -13,9 +13,9 @@ function IsValid($id, $model) {
   $model->id = $id;
   
   // Result = return value of read_single
-  $result = $model->read_single();
+  $modelResult = $model->read_single();
   
   // Returns result
-  return $result;
+  return $modelResult;
 }
 ?>

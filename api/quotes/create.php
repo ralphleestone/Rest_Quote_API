@@ -30,9 +30,11 @@ $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
+/*
 if(isset($quote) == false){
     echo json_encode(array('message' => 'Missing Required Parameters'));
 }
+*/
 
 // Checks if Quote was created
 if($quote->create()) {

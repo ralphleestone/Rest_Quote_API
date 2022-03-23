@@ -30,8 +30,8 @@ $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
-$authorIdExists = IsValid($quote->authorId,$quote);
-$categoryIdExists = IsValid($quote->categoryId,$quote);
+$authorIdExists = IsValid($quote->authorId,$quote->quote);
+$categoryIdExists = IsValid($quote->categoryId,$quote->quote);
 
 if(!$categoryIdExists){
     echo json_encode(

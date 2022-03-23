@@ -3,8 +3,12 @@ class Database {
   public function connect() {
     $url = getenv('JAWSDB_URL');
     $dbparts = parse_url($url);
+    
+    // Sets hostname
     $hostname = $dbparts['host'];
+    // Sets username
     $username = $dbparts['user'];
+    // Sets password
     $password = $dbparts['pass'];
     $database = ltrim($dbparts['path'],'/');
     try {

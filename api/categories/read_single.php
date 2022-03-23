@@ -27,6 +27,7 @@ $category_arr = array (
 
 // Checks if category id is null
 if($category->id !== null) {
+    // Converts to json and prints
     echo (json_encode($category_arr));
     } 
     else {

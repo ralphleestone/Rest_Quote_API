@@ -35,7 +35,9 @@ $categoryIdExists = IsValid($quote->categoryId,$quote);
 
 if(!$authorIdExists){
     echo json_encode(array('message' => 'authorId Not Found'));
-} else if(!$categoryIdExists){
+}
+
+if(!$categoryIdExists){
     echo json_encode(array('message' => 'categoryId Not Found'));
 }
 

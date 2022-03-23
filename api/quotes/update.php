@@ -12,11 +12,14 @@ include_once '../../functions/IsValid.php';
 
 // needs updated!
 
+// Creates database object
 $database = new Database();
 $db = $database->connect();
 
+// Creates Quote object
 $quote = new Quote($db);
 
+// Decodes json and reads data into a string
 $data = json_decode(file_get_contents("php://input"));
 
 $quote->id = $data->id;
@@ -37,6 +40,7 @@ if(!$categoryIdExists){
 }
 */
 
+// Checks if Quote was updated
 if($quote->update()) {
     echo json_encode(
         array('id' => $quote->id,

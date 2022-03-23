@@ -9,9 +9,11 @@ include_once '../../models/Quote.php';
 include_once '../../models/Author.php';
 include_once '../../models/Category.php';
 
+// Creates database object
 $database = new Database();
 $db = $database->connect();
 
+// Creates Quote object
 $quote = new Quote($db);
 
 $quote->categoryId = isset($_GET['categoryId']) ? $_GET['categoryId'] : die();

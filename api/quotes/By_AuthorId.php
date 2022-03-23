@@ -8,9 +8,11 @@ include_once '../../config/Database.php';
 include_once '../../models/Quote.php';
 include_once '../../models/Author.php';
 
+// Creates database object
 $database = new Database();
 $db = $database->connect();
 
+// Creates Quote object
 $quote = new Quote($db);
 
 $quote->authorId = isset($_GET['authorId']) ? $_GET['authorId'] : die();

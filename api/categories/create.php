@@ -15,6 +15,7 @@ $db = $database->connect();
 
 $category = new Category($db);
 
+// Decodes json and reads data into a string
 $data = json_decode(file_get_contents("php://input"));
 
 $category->id = $data->id;

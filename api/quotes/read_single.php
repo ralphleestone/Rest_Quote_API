@@ -5,9 +5,11 @@ header('Content-Type: application/json');
 include_once '../../config/Database.php';
 include_once '../../models/Quote.php';
 
+// Creates database object
 $database = new Database();
 $db = $database->connect();
 
+// Creates Quote object
 $quote = new Quote($db);
 
 $quote->id = isset($_GET['id']) ? $_GET['id'] : die();

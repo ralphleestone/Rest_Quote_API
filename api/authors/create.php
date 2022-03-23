@@ -15,6 +15,7 @@ $db = $database->connect();
 
 $author = new Author($db);
 
+// Decodes json and reads data into a string
 $data = json_decode(file_get_contents("php://input"));
 
 $author->id = $data->id;

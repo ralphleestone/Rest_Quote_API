@@ -41,8 +41,9 @@ if(isset($quote->id) !== false){
 }
 */
 
-// Converts data to json
+// checks if $quote->id is set
 if(isset($quote->id) !== false) {
+    // Converts data to json
     echo json_encode(
         array('id' =>  $quote->id));
 } 

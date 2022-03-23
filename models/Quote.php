@@ -1,12 +1,16 @@
 <?php
 class Quote {
+    
     private $conn;
+    
+    // Declares quote variables
     private $table = 'quotes';
     public $id;
     public $quote;
     public $authorId;
     public $categoryId;
     
+    // Database constructor
     public function __construct($db) {
         $this->conn = $db;
     }
@@ -27,7 +31,11 @@ class Quote {
         LEFT JOIN categories c
         ON
         q.categoryId = c.id';
+
+        // Prepares SQL query statement
         $stmt = $this->conn->prepare($query);
+
+        // Executes SQL query
         $stmt->execute();
         return $stmt;
     }
@@ -51,10 +59,18 @@ class Quote {
         WHERE 
         q.id = :id';
         
+        // Prepares SQL query statement
         $stmt = $this->conn->prepare($query);
+        
+        // Binds parameter to specified variable
         $stmt->bindParam(':id', $this->id);
+        
+        // Executes SQL query
         $stmt->execute();
+        
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        // Sets properties
         $this->id = $row['id'];
         $this->quote = $row['quote'];
         $this->author = $row['author'];
@@ -80,8 +96,13 @@ class Quote {
         WHERE 
         q.authorId = :authorId';
         
+        // Prepares SQL query statement
         $stmt = $this->conn->prepare($query);
+
+        // Binds parameter to specified variable
         $stmt->bindParam(':authorId', $this->authorId);
+        
+        // Executes SQL query
         $stmt->execute();    
         return $stmt;
     }
@@ -104,8 +125,13 @@ class Quote {
         WHERE
         q.categoryId = :categoryId';
         
+        // Prepares SQL query statement
         $stmt = $this->conn->prepare($query);
+        
+        // Binds parameter to specified variable
         $stmt->bindParam(':categoryId', $this->categoryId);
+        
+        // Executes SQL query
         $stmt->execute();
         return $stmt;
     }
@@ -130,9 +156,14 @@ class Quote {
         WHERE
         q.authorId = :authorId && q.categoryId = :categoryId' ;
         
+        // Prepares SQL query statement
         $stmt = $this->conn->prepare($query);
+        
+        // Binds parameters to specified variable
         $stmt->bindParam(':authorId', $this->authorId);
         $stmt->bindParam(':categoryId', $this->categoryId);
+        
+        // Executes SQL query
         $stmt->execute();
         return $stmt;
     }
@@ -147,15 +178,18 @@ class Quote {
         authorId = :authorId,
         categoryId = :categoryId';
         
+        // Prepares SQL query statement
         $stmt = $this->conn->prepare($query);
         $this->quote = htmlspecialchars(strip_tags($this->quote));
         $this->authorId = htmlspecialchars(strip_tags($this->authorId));
         $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
         
+        // Binds parameters to specified variable
         $stmt->bindParam(':quote', $this->quote);
         $stmt->bindParam(':authorId', $this->authorId);
         $stmt->bindParam(':categoryId', $this->categoryId);
         
+        // If SQL query executes returns true else returns false
         if($stmt->execute()) {
             return true;
         } 
@@ -176,17 +210,22 @@ class Quote {
         WHERE 
         id = :id';
         
+        // Prepares SQL query statement
         $stmt = $this->conn->prepare($query);
+        
+        // Sanitizes the string
         $this->id = htmlspecialchars(strip_tags($this->id));
         $this->quote = htmlspecialchars(strip_tags($this->quote));
         $this->authorId = htmlspecialchars(strip_tags($this->authorId));
         $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
         
+        // Binds parameters to specified variable
         $stmt->bindParam(':id', $this->id);
         $stmt->bindParam(':quote', $this->quote);
         $stmt->bindParam(':authorId', $this->authorId);
         $stmt->bindParam(':categoryId', $this->categoryId);
         
+        // If SQL query executes returns true else returns false
         if($stmt->execute()) {
             return true;
         } 
@@ -198,10 +237,14 @@ class Quote {
         // Creates SQL Query
         $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
         
+        // Prepares SQL query statement
         $stmt = $this->conn->prepare($query);
         $this->id = htmlspecialchars(strip_tags($this->id));
+        
+        // Binds parameter to specified variable
         $stmt->bindParam(':id', $this->id);
         
+        // If SQL query executes returns true else returns false
         if($stmt->execute()) {
             return true;
         } 

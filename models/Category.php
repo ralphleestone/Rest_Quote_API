@@ -1,12 +1,14 @@
 <?php
-
 class Category {
-  
+
   private $conn;
+  
+  // Declares category variables
   private $table = 'categories';
   public $id;
   public $category;
-  
+
+  // Datbase constructor
   public function __construct($db) {
     $this->conn = $db;
   }
@@ -20,7 +22,10 @@ class Category {
     From 
     ' . $this->table;
     
+    // Prepares SQL query statement
     $stmt = $this->conn->prepare($query);
+
+    // Executes SQL query
     $stmt->execute();
     return $stmt;
   }
@@ -37,16 +42,21 @@ class Category {
     id = ?
     LIMIT 0,1';
     
+    // Prepares SQL query statement
     $stmt = $this->conn->prepare($query);
+    
+    // Binds parameter to specified variable
     $stmt->bindParam(1, $this->id);
     
-        $stmt->execute();
+    // Binds parameter to specified variable
+    $stmt->execute();
     
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
-        $this->id = $row['id'];
-        $this->category = $row['category'];
-    }
+    // Sets properties
+    $this->id = $row['id'];
+    $this->category = $row['category'];
+  }
     
     public function create() {
       
@@ -55,14 +65,19 @@ class Category {
       SET
       category = :category';
       
+      // Prepares SQL query statement
       $stmt = $this->conn->prepare($query);
+      
+      // Sanitizes the string
       $this->category = htmlspecialchars(strip_tags($this->category));
+      
+      // Binds parameter to specified variable
       $stmt->bindParam(':category', $this->category);
       
+      // If SQL query executes returns true else returns false
       if($stmt->execute()) {
         return true;
       }
-      
       printf("Error: %s. \n", $stmt->error);
       return false;
     }
@@ -76,33 +91,40 @@ class Category {
       category = :category
       WHERE id = :id';
       
+      // Prepares SQL query statement
       $stmt = $this->conn->prepare($query);
       
+      // Sanitizes the string
       $this->id = htmlspecialchars(strip_tags($this->id));
       $this->category = htmlspecialchars(strip_tags($this->category));
       
+      // Binds parameters to specified variable
       $stmt->bindParam(':id', $this->id);
       $stmt->bindParam(':category', $this->category);
       
+      // If SQL query executes returns true else returns false
       if($stmt->execute()) {
         return true;
       }
-      
       printf("Error: %s. \n", $stmt->error);
       return false;
     }
     
     public function delete() {
       
-      // Creates SQL Query
+      // Creates SQL query
       $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
       
+       // Prepares SQL query statement
       $stmt = $this->conn->prepare($query);
       
+      // Sanitizes the string
       $this->id = htmlspecialchars(strip_tags($this->id));
       
+      // Binds parameter to specified variable
       $stmt->bindParam(':id', $this->id);
       
+      // If SQL query executes returns true else returns false
       if($stmt->execute()) {
         return true;
       } 

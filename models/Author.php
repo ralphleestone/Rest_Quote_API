@@ -1,11 +1,14 @@
 <?php 
 class Author {
-    private $conn;
-    private $table = 'authors';
 
+    private $conn;
+
+    // Declares author variables
+    private $table = 'authors';
     public $id;
     public $author;
 
+    // Databse construnctor
     public function __construct($db) {
         $this->conn = $db;
     }
@@ -19,7 +22,10 @@ class Author {
         From
         ' . $this->table;
         
+        // Prepares SQL query statement
         $stmt = $this->conn->prepare($query);
+        
+        // Executes SQL query
         $stmt->execute();
         return $stmt;
     }
@@ -36,12 +42,18 @@ class Author {
         id = ?
         LIMIT 0,1';
         
+        // Prepares SQL query statement
         $stmt = $this->conn->prepare($query);
+        
+        // Binds parameter to specified variable
         $stmt->bindParam(1, $this->id);
         
+        // Executes SQL query
         $stmt->execute();
+        
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         
+        // Set properties
         $this->id = $row['id'];
         $this->author = $row['author'];
     }
@@ -53,14 +65,19 @@ class Author {
         SET
         author = :author';
         
+        // Prepares SQL query statement
         $stmt = $this->conn->prepare($query);
+
+        // Sanitizes the string
         $this->author = htmlspecialchars(strip_tags($this->author));
+        
+        // Binds parameter to specified variable
         $stmt->bindParam(':author', $this->author);
         
+        // If SQL query executes returns true else returns false
         if($stmt->execute()) {
             return true;
         } 
-        
         printf("Error: %s. \n", $stmt->error);
         return false;
     }
@@ -75,12 +92,18 @@ class Author {
         WHERE
         id = :id';
         
+        // Prepares SQL query statement
         $stmt = $this->conn->prepare($query);
+
+        // Sanitizes the string
         $this->id = htmlspecialchars(strip_tags($this->id));
         $this->author = htmlspecialchars(strip_tags($this->author));
+        
+        // Binds parameters to specified variable
         $stmt->bindParam(':id', $this->id);
         $stmt->bindParam(':author', $this->author);
         
+        // If SQL query executes returns true else returns false
         if($stmt->execute()) {
             return true;
         } 
@@ -92,11 +115,17 @@ class Author {
         
         // Creates SQL Query
         $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
+        
+        // Prepares SQL query statement
         $stmt = $this->conn->prepare($query);
         
+        // Sanitizes the string
         $this->id = htmlspecialchars(strip_tags($this->id));
+        
+        // Binds parameter to specified variable
         $stmt->bindParam(':id', $this->id);
         
+        // If SQL query executes returns true else returns false
         if($stmt->execute()) {
             return true;
         } 

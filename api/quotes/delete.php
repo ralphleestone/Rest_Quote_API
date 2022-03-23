@@ -31,7 +31,7 @@ $quote->id = $data->id;
 
 $quoteExists = isValid($quote->id,$quote);
 
-if(isset($quote->quote) !== false){
+if(isset($quote->id) !== false){
     if(!$quoteExists) {
         echo json_encode(array('message' => 'No Quotes Found')); 
     } else {

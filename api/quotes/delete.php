@@ -27,19 +27,17 @@ $data = json_decode(file_get_contents("php://input"));
 
 $quote->delete();
 
-$quote->id = $data->id;
+$quoteExists = isValid($data->id,$quote);
 
-// $quoteExists = isValid($quote->id,$quote);
-
-/*
 if(!$quoteExists) {
     echo json_encode(array('message' => 'No Quotes Found')); 
 } 
 else {
+    $quote->id = $data->id;
     echo json_encode(array('id' =>  $quote->id));
 }
-*/
 
+/*
 // Converts data to json
 if(isset($quote->id) !== false) {
     echo json_encode(
@@ -50,4 +48,6 @@ else {
         array('message' => 'No Quotes Found') 
     );
 }
+*/
+
 ?>

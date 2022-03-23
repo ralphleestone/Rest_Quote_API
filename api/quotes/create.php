@@ -60,6 +60,7 @@ if(isset($quote->quote) == false || isset($quote->authorId) == false || isset($q
             'categoryId' => $quote->categoryId)
         );
     }
+
 /*
 // Checks if Quote was created
 if($quote->create()) {

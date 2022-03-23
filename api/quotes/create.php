@@ -59,7 +59,7 @@ if(isset($quote->quote) == false){
     }
 */
 
-if(isset($quote->quote) == false || isset($quote->quote) == false || isset($quote->categoryId) == false){
+if(isset($quote->quote) == false || isset($quote->authorId) == false || isset($quote->categoryId) == false){
     echo json_encode(
         array('message' => 'Missing Required Parameters')
     );

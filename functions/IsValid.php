@@ -1,4 +1,6 @@
 <?php
+
+// Includes required files
 include_once '../../config/Database.php';
 include_once '../../models/Quote.php';
 include_once '../../models/Author.php';
@@ -6,8 +8,14 @@ include_once '../../models/Category.php';
 
 // checks is value exists
 function IsValid($id, $model) {
-    $model->id = $id;
-    $result = $model->read_single();
-    return $result;
-  }
+  
+  // Sets model id
+  $model->id = $id;
+  
+  // Result = return value of read_single
+  $result = $model->read_single();
+  
+  // Returns result
+  return $result;
+}
 ?>

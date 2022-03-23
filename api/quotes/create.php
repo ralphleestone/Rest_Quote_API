@@ -59,6 +59,22 @@ if(isset($quote->quote) == false){
     }
 */
 
+if(isset($quote->quote) == false || isset($quote->quote) == false || isset($quote->categoryId) == false){
+    echo json_encode(
+        array('message' => 'Missing Required Parameters')
+    );
+}else{
+    // Converts to json
+    echo json_encode(
+        // Creates array
+        array(
+            'id' => $db->lastInsertId(),
+            'quote' => $quote->quote,
+            'authorId' => $quote->authorId,
+            'categoryId' => $quote->categoryId)
+        );
+    }
+/*
 // Checks if Quote was created
 if($quote->create()) {
     // Converts to json
@@ -75,4 +91,5 @@ if($quote->create()) {
             array('message' => 'quote Not Created')
         );
     }
+*/
 ?>

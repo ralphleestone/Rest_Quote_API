@@ -43,6 +43,7 @@ $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
 $quotesExists = isValid($quote->quote,$quote);
+
 /*
 $authorIdExists = isValid($quote->authorId,$quote);
 $categoryIdExists = isValid($quote->categoryId,$quote);

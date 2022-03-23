@@ -30,8 +30,8 @@ $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
-// $authorIdExists = IsValid($quote->authorId,$quote);
-// $categoryIdExists = IsValid($quote->categoryId,$quote);
+$authorIdExists = IsValid($quote->authorId,$quote);
+$categoryIdExists = IsValid($quote->categoryId,$quote);
 
 /*
 if(!$authorIdExists){
@@ -47,7 +47,17 @@ if(isset($quote->quote) == false || isset($quote->authorId) == false || isset($q
     echo json_encode(
         array('message' => 'Missing Required Parameters')
     );
-}else{
+}else if(!$authorIdExists){
+    echo json_encode(
+        array('message' => 'authorId Not Found')
+    );
+}
+else if(!$categoryIdExists){
+    echo json_encode(
+        array('message' => 'categoryId Not Found')
+    );
+}
+else{
     // Converts to json
     echo json_encode(
         // Creates array

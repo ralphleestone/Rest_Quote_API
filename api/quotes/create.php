@@ -25,15 +25,26 @@ $quote = new Quote($db);
 // Decodes json and reads data into a string
 $data = json_decode(file_get_contents("php://input"));
 
-if(isset($data->quote) == false){
-    echo json_encode(array('message' => 'Missing Required Parameters'));
-}
-
 $quote->id = $data->id;
 $quote->quote = $data->quote;
 $quote->authorId = $data->authorId;
 $quote->categoryId = $data->categoryId;
 
+if(isset($data->quote) == false){
+    echo json_encode(array('message' => 'Missing Required Parameters'));
+}else{
+    // Converts to json
+    echo json_encode(
+        // Creates array
+        array(
+            'id' => $db->lastInsertId(),
+            'quote' => $quote->quote,
+            'authorId' => $quote->authorId,
+            'categoryId' => $quote->categoryId)
+        );
+    }
+
+/*
 // Checks if Quote was created
 if($quote->create()) {
     // Converts to json
@@ -50,4 +61,5 @@ if($quote->create()) {
             array('message' => 'quote Not Created')
         );
     }
+    */
 ?>

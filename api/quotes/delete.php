@@ -27,7 +27,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 $quote->delete();
 
-$quoteExists = isValid($data->id,$quote);
+$quoteExists = isValid($quote->id,$quote);
 
 if(!$quoteExists) {
     echo json_encode(array('message' => 'No Quotes Found')); 

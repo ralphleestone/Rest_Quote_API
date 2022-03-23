@@ -26,6 +26,19 @@ $data = json_decode(file_get_contents("php://input"));
 $category->id = $data->id;
 $category->category = $data->category;
 
+if(isset($category->category) == false){
+    echo json_encode(
+        array('message' => 'Missing Required Parameters')
+    );
+}else{
+    // Converts to json
+    echo json_encode(
+        array(
+            'id' => $db->lastInsertId(),
+            'category' => $category->category)
+        );
+    }
+
 /*
 $categoryExists = IsValid($category->id,$category)
 
@@ -39,7 +52,7 @@ if(isset($category->category) == NULL){
     echo json_encode(array('message' => 'Missing Required Parameters'));
 }
 */
-
+/*
 // checks if category was created
 if($category->create()){
     // Converts to json
@@ -53,4 +66,5 @@ if($category->create()){
             array('message' => 'Missing Required Parameters')
         );
     }
+    */
 ?>

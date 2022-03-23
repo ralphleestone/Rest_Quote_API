@@ -26,6 +26,20 @@ $data = json_decode(file_get_contents("php://input"));
 $author->id = $data->id;
 $author->author = $data->author;
 
+if(isset($author->id) == false || isset($author->author) == false){
+    echo json_encode(
+        array('message' => 'Missing Required Parameters')
+    );
+}else{
+    // Converts to json
+    echo json_encode(
+        array(
+            'id' => $db->lastInsertId(),
+            'author' => $author->author)
+        );
+    }
+
+/*
 // Checks if author was created
 if($author->create()) { 
     // Converts to json
@@ -34,5 +48,6 @@ if($author->create()) {
             'id' => $db->lastInsertId(),
             'author' => $author->author)
         );
-    } 
+    }
+*/ 
 ?>

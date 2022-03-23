@@ -30,7 +30,7 @@ $quote->delete();
 $quote->id = $data->id;
 
 
-$quoteExists = isValid($quote->id,$quote);
+$quoteExists = IsValid($data->id,$quote);
 
 if(isset($data->id) !== false){
     if(!$quoteExists) {

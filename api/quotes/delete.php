@@ -42,7 +42,7 @@ else {
 // Converts data to json
 if(isset($quote->id) !== false) {
     echo json_encode(
-        array('id' =>  $quote->id));
+        array('id' => $quote->id));
 } 
 else {
     echo json_encode(
